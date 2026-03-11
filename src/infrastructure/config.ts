@@ -1,4 +1,9 @@
-import type { Config, DbConfig, RedisConfig } from '@/core/types/index.js'
+import type {
+	Config,
+	DbConfig,
+	MoodleConfig,
+	RedisConfig,
+} from '@/core/types/index.js'
 import { env } from '@/env.js'
 
 const getDbConfig = (): DbConfig => ({
@@ -16,9 +21,14 @@ const getRedisConfig = (): RedisConfig => ({
 	port: env.REDIS_PORT,
 })
 
+const getMoodleConfig = (): MoodleConfig => ({
+	baseUrl: env.MOODLE_BASE_URL,
+})
+
 const getConfig = (): Config => ({
 	db: getDbConfig(),
 	redis: getRedisConfig(),
+	moodle: getMoodleConfig(),
 })
 
 export { getConfig }

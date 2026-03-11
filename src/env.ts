@@ -12,6 +12,7 @@ const envSchema = z.object({
 	REDIS_USER: z.string(),
 	REDIS_PASSWORD: z.string(),
 	REDIS_PORT: z.coerce.number().default(6379),
+	MOODLE_BASE_URL: z.string().url(),
 })
 
 const env = envSchema.parse(process.env)

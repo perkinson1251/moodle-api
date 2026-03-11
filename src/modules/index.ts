@@ -1,9 +1,11 @@
 import type { Routes } from '@/core/types/routes.js'
 import { getUsersRoutes } from './users/routes/index.js'
+import { getMoodleRoutes } from './moodle/routes/index.js'
 import { HealthCheckSchema } from '@/core/schemas/index.js'
 
 export const getRoutes = (): Routes => {
 	const { routes: usersRoutes } = getUsersRoutes()
+	const { routes: moodleRoutes } = getMoodleRoutes()
 
 	return {
 		routes: [
@@ -28,6 +30,7 @@ export const getRoutes = (): Routes => {
 				},
 			},
 			...usersRoutes,
+			...moodleRoutes,
 		],
 	}
 }

@@ -3,11 +3,15 @@ import type {
 	ExternalDependencies,
 } from '@/core/types/deps.js'
 import type { UsersModuleDependencies } from '@/modules/users/types/index.js'
+import type { MoodleModuleDependencies } from '@/modules/moodle/types/index.js'
 import type { AwilixContainer, NameAndRegistrationPair } from 'awilix'
 import { resolveCommonDiConfig } from './common-di-config.js'
 import { resolveUsersModule } from '@/modules/users/index.js'
+import { resolveMoodleModule } from '@/modules/moodle/index.js'
 
-type Dependencies = CommonDependencies & UsersModuleDependencies
+type Dependencies = CommonDependencies &
+	UsersModuleDependencies &
+	MoodleModuleDependencies
 
 type DiConfig = NameAndRegistrationPair<Dependencies>
 
@@ -18,6 +22,7 @@ export const registerDependencies = (
 	const diConfig: DiConfig = {
 		...resolveCommonDiConfig(dependencies),
 		...resolveUsersModule(),
+		...resolveMoodleModule(),
 	}
 
 	diContainer.register(diConfig)
