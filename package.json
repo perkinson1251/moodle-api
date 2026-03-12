@@ -6,7 +6,7 @@
 	"scripts": {
 		"build": "tsc && resolve-tspaths",
 		"start": "node --run db:apply-migration && node --run start:prod",
-		"start:prod": "cross-env NODE_ENV=production node --env-file=.env dist/index.js",
+		"start:prod": "cross-env NODE_ENV=production node dist/index.js",
 		"start:dev": "node ./scripts/deps-check.js && cross-env NODE_ENV=development tsx --env-file=.env src/index.ts",
 		"start:dev:watch": "cross-env NODE_ENV=development tsx --env-file=.env --watch src/index.ts",
 		"docker:start:dev": "docker compose up",
