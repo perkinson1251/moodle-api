@@ -84,8 +84,8 @@ const MoodleEventSchema = z
 		timeduration: z.number().optional().describe('Event duration in seconds'),
 		courseid: z.number().optional().describe('Course ID'),
 		eventtype: z.string().optional().describe('Event type'),
-		modulename: z.string().optional().describe('Module name'),
-		instance: z.number().optional().describe('Module instance ID'),
+		modulename: z.string().nullable().optional().describe('Module name'),
+		instance: z.number().nullable().optional().describe('Module instance ID'),
 	})
 	.passthrough()
 
